@@ -9,7 +9,7 @@ import streamlit as st
 
 BASE_DIR = Path(__file__).parent
 DATA_PATH = BASE_DIR / "typhoon_data.csv"
-MODEL_PATH = BASE_DIR / "typhoon_rf_model.pkl"
+MODEL_PATH = BASE_DIR / "typhoon_rf_model_small.pkl"
 
 FEATURES = ["PREV_LAT", "PREV_LON", "LAT", "LON", "TIME_GAP", "NEXT_GAP"]
 
@@ -55,7 +55,7 @@ def haversine_km(lat1, lon1, lat2, lon2):
 if not DATA_PATH.exists() or not MODEL_PATH.exists():
     st.error("웹앱 실행에 필요한 파일이 저장소에 없습니다.")
     st.markdown("GitHub 저장소의 `app.py`와 같은 폴더(저장소 최상위)에 다음 두 파일을 업로드해 주세요:")
-    st.code("typhoon_data.csv\ntyphoon_rf_model.pkl")
+    st.code("typhoon_data.csv\ntyphoon_rf_model_small.pkl")
     st.markdown("이 파일들은 Google Colab에서 전처리된 `typhoon_df`와 학습된 `model`을 저장해 만들어야 합니다.")
     st.stop()
 
